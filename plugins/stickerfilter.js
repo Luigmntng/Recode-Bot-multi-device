@@ -31,8 +31,8 @@ ${usedPrefix + command} greyscale
     await conn.sendFile(m.chat, apiUrl, 'image.png', null, m, 0, { thumbnail: await (await fetch(apiUrl)).buffer() })
   }
 }
-handler.help = ['stikerfilter']
-handler.tags = ['sticker']
+handler.help = ['imagefilter']
+handler.tags = ['maker']
 handler.command = /^(s(tic?ker)?filter)$/i
 
 module.exports = handler
