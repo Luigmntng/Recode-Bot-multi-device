@@ -25,7 +25,7 @@
 
 ---
 
-# Marin Whatsapp MD
+# Recode esce Marin Whatsapp MD :v
 ## Information
 > Marin whatsapp using a Baileys library.
 > Jika kamu menemukan semacam bug, harap untuk dimaklumi sementara
