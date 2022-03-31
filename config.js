@@ -68,10 +68,10 @@ global.author = 'gmntng'
 
 
 
-ig: ahmdlui`
+ig: 'ahmdlui'
 global.wm = 'support by: https://marjan.id/'
 global.watermark = wm
-global.botdate = `╭──────────═┅═─────────\n│◪ ${time}\n┊◪ ${week} ${date}\n╰──────────═┅═─────────`
+global.botdate = '╭──────────═┅═─────────\n│◪ ${time}\n┊◪ ${week} ${date}\n╰──────────═┅═─────────'
 global.media = 'https://telegra.ph/file/e001198ced5650ef53d47.jpg'
 global.instagram = 'https://instagram.com/ahmdlui'
 global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=crafts-logo&doScale=true&scaleWidth=500&scaleHeight=500&fontsize=100&fillTextType=0&backgroundColor=%23401620&text='
