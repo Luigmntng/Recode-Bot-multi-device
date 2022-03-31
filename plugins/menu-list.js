@@ -14,8 +14,12 @@ let { perfomance } = require('perf_hooks')
 let moment = require('moment-timezone')
 const defaultMenu = {
   before:`
-┏━━⬣ 𝙄𝙉𝙁𝙊
-┃⬡ *KADANG RESET DATABASE KARENA RUN DI HEROKU*
+┏━━𝙄𝙉𝙁𝙊 
+┃⬡ _*KADANG RESET DATABASE*_
+┏━━𝙄𝙉𝙁𝙊 𝙐𝙎𝙀𝙍
+┃⬡ 📇 *Name*:  %name 
+┃⬡ 🎫 *Limit*: %limit
+┏━━𝙄𝙉𝙁𝙊 𝙎𝙏𝘼𝙏𝙐𝙎
 ┃
 ┃⬡ *${Object.keys(global.db.data.users).length}* Pengguna
 ┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
@@ -38,10 +42,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   'main': '*MENU UTAMA*',
   'advanced': '*ADVANCED*',
   'absen': '*MENU ABSEN*',
-  'animsearch': '*ANIME SEARCH',
-  'anime': '*GACHA ANIME*',
-  'hentai': '*HENTAI MENU*',
-  'gachasupan': '*GACHA ASUPAN*',
+  'anime': '*MENU ANIME*',
   'sticker': '*MENU CONVERT*',
   'downloader': '*MENU DOWNLOADER*',
   'xp': '*MENU EXP*',
@@ -54,12 +55,9 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   'internet': '*INTERNET*',
   'islam' : '*MENU ISLAMI*',
   'kerang': '*MENU KERANG*',
-  'stres': '*STRES GENERATOR*',
-  'filterwjh': '*FILTER WAJAH*',
   'maker': '*MENU MAKER*',
-  'nulis': 'MENU MENULIS*',
   'owner': '*MENU OWNER*',
-  'suara': '*PENGUBAH SUARA*',
+  'Pengubah Suara': '*PENGUBAH SUARA*',
   'premium': '*PREMIUM MENU*',
   'quotes' : '*MENU QUOTES*',
   'rpg': '*MENU RPG*',
@@ -72,17 +70,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'absen': 'MENU ABSEN',
     'vote': '*MENU VOTING*',
   }
-  if (teks == 'animsearch') = {
-  'animsearch': '*ANIME SEARCH*',
-  }
   if (teks == 'anime') tags = {
-  'anime': '*GACHA ANIME*',
-  }
-  if (teks == 'hentai') tags = {
-  'hentai': '*HENTAI MENU*',
-  }
-  if (teks == 'gachasupan') tags = {
-  'gachasupan': '*GACHA ASUPAN*',
+  'anime': '*MENU ANIME*',
   }
   if (teks == 'sticker') tags = {
   'sticker': '*MENU CONVERT*',
@@ -120,17 +109,8 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'kerang') tags = {
   'kerang': '*MENU KERANG*',
   }
-  if (teks == 'filterwjh') tags = {
-  'kerang': '*FILTER WAJAH*',
-  }
-  if (teks == 'stres') tags = {
-  'stres': '*STRES GENERATOR*',
-  }
   if (teks == 'maker') tags = {
   'maker': '*MENU MAKER*',
-  }
-  if (teks == 'nulis') tags = {
-  'nulis': '*MENU MENULIS*',
   }
   if (teks == 'owner') tags = {
     'owner': 'Owner',
@@ -138,7 +118,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'advanced': 'Advanced'
   }
   if (teks == 'suara') tags = {
-  'suara': '*PENGUBAH SUARA*',
+  'Pengubah Suara': '*PENGUBAH SUARA*',
   }
   if (teks == 'premium') tags = {
   'premium': '*PREMIUM MENU*',
@@ -219,7 +199,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
       const template = generateWAMessageFromContent(m.key.remoteJid, proto.Message.fromObject({
         listMessage: {
             title: `*Hai* ${name}`,
-            description: `${ucapan()}\n*Silahkan Pilih List Menu*\n*Di Bawah Ya*`,
+            description: `Sebagian fitur ada di allmenu\nSoalnya males nambahin di listmenu :v`,
             buttonText: 'LIST MENU',
             listType: 1,
             footerText: "Silahkan Tekan Tombol \"LIST MENU\" Untuk Melihat Menu Bot\n\nJika Menemukan Bug/Kesulitan Dalam Penggunaan Bot Silahkan Laporkan/Tanyakan Kepada Owner",
@@ -232,7 +212,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
                   "rowId": `.owner`
                 },{
                   "title": "INFO BOT",
-                  "description": "Dikasih info masszehh",
+                  "description": "Menampilkan Menu Info",
                   "rowId": `${_p}? info`
                 }],
                 "title": "INFORMASI BOT"
@@ -240,46 +220,34 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
                 "rows": [{
                   "title": `SEMUA PERINTAH`,
                   "description": "Menampilkan Menu All",
-                  "rowId": `.menu2'
+                  "rowId": '.menu2'
                   }, {
                   "title": "ABSEN & VOTING",
-                  "description": "Absen Yah jgn Bolos",
+                  "description": "Menampilkan Menu Absen",
                   "rowId": `${_p}? absen`
                 }, {
-                  "title": "ANIME SEARCH",
-                  "description": "Untuk pencarian Anjime",
-                  "rowld": `${_p}? animsearch`
-                }, {
-                  "title": "GACHA ANIME",
-                  "description": "Menu khusus wibu nolep ",
+                  "title": "ANIME MENU",
+                  "description": "Menampilkan Menu Anime",
                   "rowId": `${_p}? anime`
-                }, {
-                  "title": "HENTAI MENU",
-                  "description": "ingin mining dosa biar masuk neraka? klik disini",
-                  "rowld": `${_p}? hentai`
-                }, {
-                  "title": "GACHA ASUPAN",
-                  "description": "mau random asupan no 18+? klik disini',
-                  "rowld": `${_p}? gachasupan`
                 }, {
                   "title": "STICKER & CONVERTER",
                   "description": "Menampilkan Menu Sticker",
                   "rowId": `${_p}? sticker`
                 }, {
                   "title": "DOWNLOADER MENU",
-                  "description": "Mau download sesuatu dari bot? klik disini",
+                  "description": "Menampilkan Menu Downloader",
                   "rowId": `${_p}? downloader`
                 }, {
                   "title": "EXP & LIMIT",
-                  "description": "Untuk jual beli limit",
+                  "description": "Menampilkan Menu Exp",
                   "rowId": `${_p}? xp`
                 }, {
                   "title": "FUN MENU",
-                  "description": "Gabut bilek",
+                  "description": "Menampilkan Menu Fun",
                   "rowId": `${_p}? fun`
                 }, {
                   "title": "GAME MENU",
-                  "description": "Mau main mini Game di bot? klik disini",
+                  "description": "Menampilkan Menu Game",
                   "rowId": `${_p}? game`
                 }, {
                   "title": "GITHUB MENU",
@@ -295,32 +263,20 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
                   "rowId": `${_p}? image`
                 }, {
                   "title": "INTERNET MENU",
-                  "description": "Mencari apapun di bot? klik disini",
+                  "description": "Menampilkan Menu Internet",
                   "rowId": `${_p}? internet`
                 }, {
                   "title": "ISLAM MENU",
-                  "description": "Mau tobat? klik disini",
+                  "description": "Menampilkan Menu Islam",
                   "rowId": `${_p}? islam`
                 }, {
                   "title": "KERANG AJAIB",
-                  "description": "Wahai Kerang ajaib",
+                  "description": "Menampilkan Menu Kerang",
                   "rowId": `${_p}? kerang`
-                }, {
-                  "title": "FILTER WAJAH",
-                  "description": "fitur baru tahap beta maaf jika eror",
-                  "rowld": `${_p}? filterwjh`
-                }, {
-                  "title": "STRES GENERATOR",
-                  "description": "Khusus org stres",
-                  "rowld": `${_p}? stres`
                 }, {
                   "title": "MAKER MENU",
                   "description": "Menampilkan Menu Maker",
                   "rowId": `${_p}? maker`
-                }, {
-                  "title" "MENULIS MENU",
-                  "description": "Mau nulis tugas daring di bot? klik disini",
-                  "rowld": `${_p}? nulis`
                 }, {
                   "title": "OWNER MENU",
                   "description": "Menampilkan Menu Owner",
@@ -349,7 +305,7 @@ let help = Object.values(global.plugins).filter(plugin => !plugin.disabled).map(
                   "title": "SHORT LINK",
                   "description": "Menampilkan Menu Short Link",
                   "rowId": `${_p}? shortlink`
-                }, {  
+                }, {
                   "title": "TOOLS MENU",
                   "description": "Menampilkan Menu Tools",
                   "rowId": `${_p}? tools`
