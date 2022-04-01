@@ -33,13 +33,12 @@ let tags = {
 
 const defaultMenu = {
   before: `
-┏━━⬣ꕥ %me ꕥ━━━━
+┏━━Ada Marjan ?
 ┃⬡📊 *Version*: %version
 ┃⬡🗃️ *Lib*: Baileys-MD
 ┃⬡🧪 *Mode:* ${global.opts['self'] ? 'Self' : 'publik'}
 ┃⬡⏰ *Uptime:* %uptime
-┗⬣
-┏━━⬣ 𝙄𝙉𝙁𝙊 𝙐𝙎𝙀𝙍
+┏━━𝙄𝙉𝙁𝙊 𝙐𝙎𝙀𝙍
 ┃⬡ 📇 *Name*:  %name 
 ┃⬡ 🆔 *Status*: ---
 ┃⬡ 🎫 *Limit*: %limit
@@ -48,14 +47,12 @@ const defaultMenu = {
 ┃⬡ 📊 *Level*: %level
 ┃⬡ 📍 *Role*: %role
 ┃⬡ 💲Premium : ${global.prem ? '✅' : '❌'}
-┗⬣
-┏━━⬣ 𝙄𝙉𝙁𝙊 𝙎𝙏𝘼𝙏𝙐𝙎
+┏━━𝙄𝙉𝙁𝙊 𝙎𝙏𝘼𝙏𝙐𝙎
 ┃
 ┃⬡ *${Object.keys(global.db.data.users).length}* Pengguna
 ┃⬡ *${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}* Chat Terbanned
 ┃⬡ *${Object.entries(global.db.data.users).filter(user => user[1].banned).length}* Pengguna Terbanned
 ┃
-┗⬣
 ╭─❑ 「 INFORMASI 」 ❑──
 ┃⬡ github : github.com/luigmntng
 ┃⬡ instagram : instagram.com/ahmdlui
