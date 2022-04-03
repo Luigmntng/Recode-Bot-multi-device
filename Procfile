@@ -1,3 +1,2 @@
 worker: node .
-console: npm i pm2 && pm2 start index.js && pm2 save && pm2 logs
-bash: node index 
+web: node . -- db 'mongodb+srv://Databasebot:<password>@clusterfree.1pyzk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
