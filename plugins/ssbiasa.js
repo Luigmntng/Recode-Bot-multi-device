@@ -14,9 +14,9 @@ let handler = async (m, { conn, command, args }) => {
   let ss = await (await fetch('https://hardianto.xyz/api/tools/ssweb?url=' + encodeURIComponent(url) + '&apikey=hardianto')).buffer()
   conn.sendFile(m.chat, ss, 'screenshot.png', url, m)
 }
-handler.help = ['sslaptop', 'sspc'].map(v => v + ' <url>')
+handler.help = ['ssbiasa', 'ss'].map(v => v + ' <url>')
 handler.tags = ['internet']
-handler.command = /^ss(laptop)?pc?$/i
+handler.command = /^(ss)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
